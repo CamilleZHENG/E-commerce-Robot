@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robot</title>
+    <base href="<?= CLIENT_ROOT ?>" />
+    <link rel="stylesheet" href="resources/css/style.css" media="all">
+</head>
+<body>
+    <h1>Bienvenu chez Robots</h1>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./">Accueil</a>
+                </li>
+                <li>
+                    <a href="Clients/showClientSpace">Espace client</a>
+                </li>
+                <li>
+                    <a href="ShoppingCart/show">Panier</a>
+                </li>
+                    <?php if(isset($connectedCustomer)): ?>
+                <li>
+                    <p><?=$connectedCustomer['firstName'].' '.$connectedCustomer['lastName'] ?></p>
+                </li>
+                <li>
+                    <a href="Clients/disconnect">Déconnection</a>
+                </li>
+                    <?php endif; ?>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <?php if(count($categories) > 0): ?>
+                <nav>
+                    <h5>Catégories</h5>             
+                    <?php foreach ($categories as $value):?>
+                        <h6>
+                            <a href="Products/showAllProductOfOneCate?id=<?= intval($value['id']) ?>">
+                                <?=htmlspecialchars($value['name']) ?>(<?= intval($value['numProducts']) ?>)
+                            </a>                       
+                        </h6>
+                    <?php endforeach;?>
+                </nav>
+            <?php endif; ?>
+        </section>
+
+        <section>
+            <?= $content ?> 
+        <!--C'est la partie que l'on a mit dans view-> example.phtml, "robotHomepage.phtml" dans cet exemle-->
+        </section>
+    </main>
+
+    
+    <form action ="products/showResearchResult" method="get">
+        <!--Pour action ici, on peut mettre: 
+        1.le nom d'action de DefaultController.php : on crée donc un researchAction().
+        Dans la méthode de resarcheAction(), on va rappeler la méthode crée dans ProductsManager
+        2. le nom de controller (ex, "products" dans la code) +"/" + le nom d'action dans ce controller que l'on veut rappeler-->
+
+        <p>
+            <label>Recherche de produit</label>
+            <input type ="text" name = "research" />
+        </p>
+        <p>
+            <input type = "submit" value="research">
+        </p>
+    </form>
+    <!--
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="resources/js/connection.js"></script>
+    -->
+</body>
+</html>

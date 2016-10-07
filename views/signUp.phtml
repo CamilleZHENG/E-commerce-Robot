@@ -1,0 +1,165 @@
+<h1>Create your personal account </h1>
+
+<form action ="Clients/createOneCompte" method="post">
+
+<!--
+    <p>
+        <label>civility : </label>
+        <input type ="text" name = "civility" placeholder="Mr/Mmr/Miss" required/>*
+    </p>
+-->
+    <p>
+        <label>civility </label>
+        <select name = "civility" />
+        <option value="">---</option>
+        <option value = "M" <?php if($customer['civility']=='M'): ?><?='selected' ?><?php endif; ?>>M</option>
+        <option value = "Mme" <?php if($customer['civility']=='Mme'): ?><?='selected' ?><?php endif; ?>>Mme</option>
+        <option value = "Mlle" <?php if($customer['civility']=='Mlle'): ?><?='selected' ?><?php endif; ?>>Mlle</option>
+        </select>
+    </p>
+
+    <?php if(isset($errorsMessage['civility'])): ?>
+        
+          <p><?=$errorsMessage['civility'] ?></p>
+
+    <?php endif; ?>
+
+
+
+
+
+    <p>
+        <label>first name : </label>
+        <input type ="text" name = "firstName" placeholder="votre prénom" value="<?=$customer['firstName'] ?>"/>
+    </p>
+    <?php if(isset($errorsMessage['firstName'])): ?>
+
+    <p><?=$errorsMessage['firstName'] ?></p>
+
+    <?php endif; ?>
+
+
+
+    <p>
+        <label>Last name : </label>
+        <input type ="text" name = "lastName" placeholder="votre nom" value="<?=$customer['lastName'] ?>" />*
+    </p>
+    <?php if(isset($errorsMessage['lastName'])): ?>
+
+    <p><?=$errorsMessage['lastName'] ?></p>
+
+    <?php endif; ?>
+
+
+
+
+    <p>
+        <label>E-mail : </label>
+        <input type ="text" name = "mail" size="20" value="<?=$customer['mail'] ?>"/>*
+    </p>
+    <?php if(isset($errorsMessage['mail'])): ?>
+
+    <p><?=$errorsMessage['mail'] ?></p>
+
+    <?php endif; ?>
+    
+    
+    <!--
+    <p>
+        <label>E-mail : </label>
+        <input type ="email" name = "mail" size="20" value ="" required/>*
+    </p>
+    -->
+
+    <p>
+        <label>Passeword : </label>
+        <input type ="password" name = "password" />
+    </p>
+    
+    <?php if(isset($errorsMessage['password'])): ?>
+
+    <p><?=$errorsMessage['password'] ?></p>
+
+    <?php endif; ?>
+
+
+
+    <p>
+        <label>Passeword : </label>
+        <input type ="password" name = "passwordConfirmation" />
+    </p>
+    <?php if(isset($errorsMessage['passwordConfirmation'])): ?>
+
+    <p><?=$errorsMessage['passwordConfirmation'] ?></p>
+
+    <?php endif; ?>
+
+    
+    
+    <p>
+        <label>Your adresse:</label>
+        <input type ="text" name = "address" size="30" placeholder="35 Avenue de pomme" value="<?=$customer['address'] ?>" />
+        <input type ="text" name = "zipCode" placeholder="zipCode" value="<?=$customer['zipCode'] ?>" /><br>
+        <input type ="text" name = "city" placeholder="city name" value="<?=$customer['city'] ?>" />
+        <input type ="text" name = "country" placeholder="your country" value="<?=$customer['country'] ?>" />
+
+    </p>
+    <?php if(isset($errorsMessage['address'])): ?>
+
+    <p><?=$errorsMessage['address'] ?></p>
+
+    <?php endif; ?>
+    <?php if(isset($errorsMessage['zipCode'])): ?>
+
+    <p><?=$errorsMessage['zipCode'] ?></p>
+
+    <?php endif; ?>
+    <?php if(isset($errorsMessage['city'])): ?>
+
+    <p><?=$errorsMessage['city'] ?></p>
+
+    <?php endif; ?>
+    <?php if(isset($errorsMessage['country'])): ?>
+
+    <p><?=$errorsMessage['country'] ?></p>
+
+    <?php endif; ?>
+    
+    
+    
+    
+
+    <p>
+        <label>Tél : </label>
+        <input type ="tel" name = "telephone" value ="<?=$customer['telephone'] ?>" />
+    </p>
+    
+    <!--
+    <p>
+        <label>Sexe</label>
+        <input type="radio" name="sexe" value="m" />M
+        <input type="radio" name="sexe" value="f" />F
+        <input type="radio" name="sexe" value="o" />Other
+    </p>
+
+    <p>
+        <label>You are interested in which robots? </label>
+        <br>
+        <input type="checkbox" name="robots[]" value="chat" />chatting robots
+        <input type="checkbox" name="robots[]" value="learn" />learing robots
+        <input type="checkbox" name="robots[]" value="house" />housework robots
+    </p>
+    <p>
+        <label>Description sur vous : </label>
+        <br>
+        <textarea type ="message" placeholder="I am..."></textarea>
+    </p>
+-->
+    <p>
+        <input type ="submit" name = "submit" value = "Sign up"/>
+    </p>
+    <p>
+        <input type ="reset" name = "" value = "Reset"/>
+    </p>
+
+</form>

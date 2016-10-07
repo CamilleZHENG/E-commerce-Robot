@@ -1,0 +1,16 @@
+<div class="oneProduct">
+
+    <h3>
+        <?= htmlspecialchars($product['name'])  ?>
+    </h3>
+    <p>
+        <?= nl2br(htmlspecialchars(mb_strimwidth($product['description'], 0, 255, '…'))) ?>
+    </p>
+    <p>
+        <a href="ShoppingCart/addProduct?id=<?=$product['id'] ?>" class="button">Ajouter au panier</a>
+        <a href="#" class="button">En savoir plus</a>
+    </p>
+			    <span>
+			    	<?= number_format($product['priceHT'],2,',', ' ') ?>
+			    </span>
+</div>

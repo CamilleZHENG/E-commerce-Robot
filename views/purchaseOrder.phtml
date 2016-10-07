@@ -1,0 +1,62 @@
+<h1>Bon de commande</h1>
+
+
+<div class="orderInfos">
+    
+
+    <div>
+        <h2>Facturation</h2>
+
+        <?php foreach ($billingInfos as $value):?>
+            <p><?= $value ?></p>
+        <?php endforeach;?>
+
+    </div>
+
+    <div>
+
+        <h2>Livraison</h2>
+
+        <?php foreach ($deliveryInfos as $value):?>
+            <p><?= $value ?></p>
+        <?php endforeach;?>
+
+    </div>
+</div>
+
+
+
+    <h2>Produits comandés</h2>
+
+    <table>
+
+        <tr>
+            <th>product name</th>
+            <th>priceTTC</th>
+            <th>quantité</th>
+            <th>prix total</th>
+            <th>supprimer</th>
+        </tr>
+
+        <?php foreach ($products as $value):?>
+
+            <tr>
+                <th><?= $value['name'] ?></th>
+                <th><?= $value['priceTTC'] ?></th>
+                <th><?= $value['quantity'] ?></th>
+                <th><?= $value['prixTotal'] ?></th>
+            </tr>
+        <?php endforeach;?>
+
+        <tr>
+            <th>Prix final</th>
+            <th></th>
+            <th></th>
+            <th><?= $prixFinal ?></th>
+            <th></th>
+        </tr>
+
+    </table>
+
+    <a href="Orders/showOrderInfos">Etape précédente</a>
+    <a href="Orders/saveOrderInfos">Confirmer</a>

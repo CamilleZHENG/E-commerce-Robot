@@ -1,0 +1,46 @@
+<?php if(count($products) > 0): ?>
+
+    <div class="products">
+
+        <form action ="ShoppingCart/update" method="post">
+
+            <table>
+
+                <tr>
+                    <th>product name</th>
+                    <th>priceTTC</th>
+                    <th>quantité</th>
+                    <th>prix total</th>
+                    <th>supprimer</th>
+                </tr>
+
+                <?php foreach ($products as $value):?>
+
+                    <tr>
+                        <th><?= $value['name'] ?></th>
+                        <th><?= $value['priceTTC'] ?></th>
+                        <th><input type ="text" name = "quantity[<?= $value['id'] ?>]" value="<?= $value['quantity'] ?>" size="2" maxlength="2" /></th>
+                        <th><?= $value['prixTotal'] ?></th>
+                        <th><a href="ShoppingCart/delet?id=<?= $value['id'] ?>">Supprimer</a></th>
+                    </tr>
+                <?php endforeach;?>
+
+                <tr>
+                    <th>Prix final</th>
+                    <th></th>
+                    <th></th>
+                    <th><?= $prixFinal ?></th>
+                    <th></th>
+                </tr>
+
+            </table>
+            <p>
+                <input type ="submit" name = "submit" value = "Actualiser"/>
+                <a href="Orders/showOrderInfos">Commande</a>
+            </p>
+        </form>
+    </div>
+<?php else: ?>
+    <p>Aucun produit dans le panier</p>
+
+<?php endif; ?>

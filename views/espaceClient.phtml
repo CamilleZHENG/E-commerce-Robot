@@ -1,0 +1,33 @@
+<h1>Accès à l'espace client</h1>
+
+<form action ="Clients/connection" method="post">
+
+    <p>
+        <label>Identifiant : </label>
+        <input type ="text" name = "userName" placeholder="Votre e-mail" value="<?=$identifiant ?>" />
+    </p>
+
+    <p>
+        <label>Mot de passe : </label>
+        <input type ="password" name = "password"/>
+        <p class="message_error" data-error="nb-car-password-check">
+            Le mot de passe est incorrect!
+        </p>
+    </p>
+
+    <?php if (isset($errorsMessage['userNameVide'])):?>
+        <p><?=$errorsMessage['userNameVide'] ?></p>
+    <?php elseif (isset($errorsMessage['compteIncorrect'])):?>
+        <p><?=$errorsMessage['compteIncorrect'] ?></p>
+    <?php endif;?>
+
+
+
+
+
+    <p class="connexion">
+        <input type = "submit" name="submit" value="Log In">
+        <a href="Clients/showSignUpTable">Créer un compte</a>
+    </p>
+
+</form>

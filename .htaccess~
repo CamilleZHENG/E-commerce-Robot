@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^$ frontController.php?controller=default&action=home [QSA,L]
+RewriteRule ^([a-zA-Z0-9]+)$ frontController.php?controller=default&action=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9]+)\/([a-zA-Z0-9]+)$ frontController.php?controller=$1&action=$2 [QSA,L]

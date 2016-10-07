@@ -1,0 +1,92 @@
+
+<h3>Saisir vos informations de commande</h3>
+
+<form class="orderInfos" action ="Orders/addOrderInfos" method="post">
+
+    <div>
+            <p>Informations de facturation </p>
+
+            <p>
+                <label>civility </label>
+                <select name = "billingCivility" />
+                <option value="">---</option>
+                <option value = "M" >M</option>
+                <option value = "Mme" >Mme</option>
+                <option value = "Mlle" >Mlle</option>
+                </select>
+            </p>
+
+            <p>
+                <label>first name : </label>
+                <input type ="text" name = "billingFirstName" placeholder="votre prénom" />
+            </p>
+
+            <p>
+                <label>Last name : </label>
+                <input type ="text" name = "billingLastName" placeholder="votre nom" />
+            </p>
+
+            <p>
+                <label>Your adresse:</label>
+                <input type ="text" name = "billingAddress" size="30" placeholder="35 Avenue de pomme"  />
+                <input type ="text" name = "billingZipCode" placeholder="zipCode" /><br>
+                <input type ="text" name = "billingCity" placeholder="city name" />
+                <input type ="text" name = "billingCountry" placeholder="your country" />
+
+            </p>
+
+            <p>
+                <label>Tél : </label>
+                <input type ="tel" name = "billingPhoneNumber"  />
+            </p>
+
+    </div>
+
+
+    <div>
+            <p>Informations de livraison </p>
+
+            <p>
+                <label>civility </label>
+                <select name = "deliveryCivility" />
+                <option value="">---</option>
+                <option value = "M" >M</option>
+                <option value = "Mme" >Mme</option>
+                <option value = "Mlle" >Mlle</option>
+                </select>
+            </p>
+
+            <p>
+                <label>first name : </label>
+                <input type ="text" name = "deliveryFirstName" placeholder="votre prénom" />
+            </p>
+
+            <p>
+                <label>Last name : </label>
+                <input type ="text" name = "deliveryLastName" placeholder="votre nom" />
+            </p>
+
+            <p>
+                <label>Your adresse:</label>
+                <input type ="text" name = "deliveryAddress" size="30" placeholder="35 Avenue de pomme"  />
+                <input type ="text" name = "deliveryZipCode" placeholder="zipCode" /><br>
+                <input type ="text" name = "deliveryCity" placeholder="city name" />
+                <input type ="text" name = "deliveryCountry" placeholder="your country" />
+
+            </p>
+
+            <p>
+                <label>Tél : </label>
+                <input type ="tel" name = "deliveryPhoneNumber"  />
+            </p>
+
+    </div>
+
+    <p>
+        <input type ="submit" name = "submit" value = "Enregistrer"/>
+    </p>
+    <p>
+        <input type ="reset" name = "" value = "Reset"/>
+    </p>
+
+</form>

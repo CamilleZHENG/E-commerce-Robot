@@ -1,0 +1,108 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wap21
+ * Date: 20/07/16
+ * Time: 15:50
+ */
+class View
+{
+
+    private $path;
+    private $data;
+    private $templatePath;
+    
+    
+    public function __construct($viewPath, $viewData=[], $templatePath = null)
+
+    //quand l'objet est instancié, on transmettre chaque info à propriété correspondante
+    {
+        $this ->path = $viewPath;
+        $this ->data = $viewData;
+        $this ->templatePath = $templatePath;
+    }
+    
+
+
+
+    public function generate()
+    {
+        //Quand on recoit le données, ça doit être un tableau tel que [$eleves, $matieres]
+        /*[
+            'eleves' => $eleves,
+            'matieres' => $matieres
+        ]
+        */
+
+        extract($this ->data);
+
+        if($this ->templatePath == null)//Si on n'a pas de template:
+        {
+            include SERVER_ROOT.'views/'.$this->path;
+
+        }
+        else//s'il existe template, il faut que l'on charge le template:
+        {
+            ob_start();
+
+            include SERVER_ROOT.'views/'.$this ->path;
+
+            $content = ob_get_clean();
+
+            include SERVER_ROOT.'views/templates/'.$this ->templatePath;
+            //les templates sont tous mis dans le même dossier.
+        }
+
+
+    }
+
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

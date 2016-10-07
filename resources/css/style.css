@@ -1,0 +1,71 @@
+body{
+	background-image: url('../images/bg.jpg');
+	background-repeat:repeat-y;
+	color: black;
+}
+h1{
+	color: yellow;
+}
+header>nav>ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style-type: none;
+}
+header a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+section{
+	display: inline-block;
+}
+section:first-of-type{
+	text-align: center;
+	vertical-align: top;
+	width: 20%;
+}
+section:last-of-type{
+	color: rgb(117, 172, 3);
+	width: 60%;
+	font-weight: bold;
+}
+section:first-of-type a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+h5{
+	font-size: 1.5em;
+	color: white;
+}
+section:first-of-type h6{
+	font-size: 1em;
+}
+.product a{
+text-decoration: none;
+color: black;
+}
+.connexion>a{
+	text-decoration: none;
+	color: black;
+	background-color: rgb(239, 239, 239);
+	padding: 0.5%;
+}
+.connexion>input{
+	text-decoration: none;
+	color: black;
+	background-color: rgb(239, 239, 239);
+}
+.error{
+	background-color: red;
+}
+.message_error{
+	color: red;
+	display: none;
+}
+.orderInfos{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}

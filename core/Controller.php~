@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: wap21
+ * Date: 20/07/16
+ * Time: 16:47
+ */
+abstract class Controller
+{
+    protected $viewData = [];
+
+    protected function generateView($viewPath, $templatePath = null)
+    {
+        $view = new View($viewPath, $this-> viewDate, $templatePath);
+        $view -> generate();
+    }
+    
+}

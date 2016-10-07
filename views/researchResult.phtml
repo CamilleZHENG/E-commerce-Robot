@@ -1,0 +1,63 @@
+
+<p>Result for the search of "<?= $search ?>" : </p>
+
+
+
+<?php if(count($productResearched) > 0): ?>
+
+    <div class="productsResearched">
+        <?php foreach ($productResearched as $value):?>
+
+            <div class="Product">
+
+                <h3>
+                    <?= htmlspecialchars($value['name'])  ?>
+                </h3>
+                <p>
+                    <?= nl2br(htmlspecialchars(mb_strimwidth($value['description'], 0, 255, '…'))) ?>
+                </p>
+                <p>
+                    <a href="ShoppingCart/addProduct?id=<?= $value['id'] ?>" class="button">Ajouter au panier</a>
+                    <a href="#" class="button">En savoir plus</a>
+                </p>
+			    <span>
+			    	<?= number_format($value['priceHT'],2,',', ' ') ?>
+			    </span>
+            </div>
+        <?php endforeach;?>
+    </div>
+<?php else: ?>
+    <p>Aucun produit correspond à votre recherche</p>
+
+<?php endif; ?>
+
+
+<?php if($numPage > 1): ?>
+
+    <nav class="pagination">
+
+        <?php for($page =1; $page <= $numPage; $page++):?>
+
+            <?php if($page != $requestedPage): ?>
+                <!--$requestedPage est de type string, $page est de type int.
+                != permet de conmparer que la valeur mais pas le type.
+                !== permet de comparer la valeur et le type.
+                On veut que comparer la valeur dans notre cas. Il faut donc !=
+                 -->
+
+                <a href="products/showResearchResult?requestedPage=<?= intval($page) ?>"><?= intval($page) ?></a>
+
+            <?php else: ?>
+
+                <span>
+						<?= intval($page) ?>
+					</span>
+
+            <?php endif; ?>
+
+        <?php endfor; ?>
+
+    </nav>
+
+<?php endif; ?>
+
